@@ -1,0 +1,99 @@
+.site-header,
+main,
+.site-footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.site-header nav {
+  display: flex;
+  gap: 24px;
+}
+
+.site-header nav a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.site-header nav a:hover {
+  color: var(--text);
+}
+
+.hero {
+  padding: 96px 0 64px;
+  max-width: 720px;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+  margin: 0 0 12px;
+}
+
+.hero h1 {
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+}
+
+.lede {
+  font-size: 1.2rem;
+  color: var(--muted);
+}
+
+.section {
+  padding: 48px 0;
+  border-top: 1px solid var(--border);
+}
+
+.project-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.project-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.project-card p {
+  color: var(--muted);
+  margin: 0;
+}
+
+.project-thumb {
+  aspect-ratio: 16 / 10;
+  border-radius: 8px;
+  background: var(--border);
+  margin-bottom: 16px;
+}
+
+.site-footer {
+  padding-top: 32px;
+  padding-bottom: 48px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
