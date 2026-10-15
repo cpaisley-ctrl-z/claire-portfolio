@@ -1,0 +1,168 @@
+/* ==========================================================
+   Home page: nav, featured work, footer
+   Headings use Publico Banner, smaller text uses Roboto.
+   ========================================================== */
+:root {
+  --font-small: "Roboto", system-ui, -apple-system, sans-serif;
+  --nav-h: 84px;
+  --gutter: 24px;
+  --column: calc(100% - 2 * var(--margin));
+  --placeholder: #d4d4d4;
+  --footer-bg: #a6a6a6;
+  --footer-fg: #000;
+}
+
+/* ---------- Pills (nav buttons, tags, footer buttons) ---------- */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 16px;
+  border: 1px solid var(--fg);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--fg);
+  font: 400 15px/1.2 var(--font-small);
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color .2s ease, color .2s ease;
+}
+.pill:hover, .pill--active { background: var(--fg); color: var(--bg); }
+.pill:focus-visible { outline: 2px solid var(--fg); outline-offset: 2px; }
+
+/* ---------- Navigation ---------- */
+.site-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 10;
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 var(--gutter);
+  background: var(--bg);
+  transition: background-color .4s ease;
+}
+.nav-logo-slot { flex: 1; }
+.nav-links {
+  display: flex;
+  gap: 10px;
+  /* home.js fades these in as your name slides over */
+  opacity: 0;
+  transform: translateX(32px);
+  pointer-events: none;
+}
+.site-nav .theme-toggle { opacity: 0; transform: translateX(32px); pointer-events: none; }
+.nav-links.is-on, .site-nav .theme-toggle.is-on { pointer-events: auto; }
+.nav-links .pill { min-width: 78px; justify-content: center; font-size: 16px; padding: 9px 18px; }
+
+/* The intro is only as tall as the name + tagline. home.js adds top padding
+   so they start centred on screen, with the work peeking in below. */
+.intro { display: block; min-height: 0; }
+
+/* Work and footer appear with the name after the loader. */
+.work, .site-footer { transition: opacity .9s ease; will-change: transform; }
+.is-loading .work, .is-loading .site-footer { opacity: 0; }
+
+/* Your name sits above the nav so it can land in it. */
+.intro-name { position: relative; z-index: 11; }
+.home-link { color: inherit; text-decoration: none; }
+.intro-name, .home-link { pointer-events: none; }
+/* Only the (moved) name itself is clickable, not the space it left behind. */
+.home-link span { pointer-events: auto; }
+.intro-name span { transform-origin: 0 0; will-change: transform; }
+
+/* ---------- Featured work ---------- */
+.work {
+  width: var(--column);
+  margin: 0 auto;
+  padding: 50px 0 96px;
+}
+.work-heading {
+  margin: 0 0 52px;
+  font: 700 32px/1.2 var(--font-bold);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+.project {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+  margin-bottom: 76px;
+}
+.project:nth-of-type(even) .project-media { order: 2; }   /* alternate image left / right */
+.project-media {
+  border-radius: var(--radius);
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+}
+.project-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.project-text { padding-top: 6px; }
+.project-text h3 { margin: 0 0 18px; font: 700 32px/1.15 var(--font-bold); }
+.project-text h3 a { color: inherit; text-decoration: none; }
+/* Hovering a linked project lifts its image a little. */
+.project-media { transition: transform .3s ease; }
+.project:has(a:hover) .project-media,
+.project:has(a:focus-visible) .project-media {
+  transform: translateY(-8px) scale(1.02) rotate(-1.5deg);
+}
+.project:nth-of-type(even):has(a:hover) .project-media,
+.project:nth-of-type(even):has(a:focus-visible) .project-media {
+  transform: translateY(-8px) scale(1.02) rotate(1.5deg);
+}
+.project-media a { display: block; height: 100%; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0 0 26px; padding: 0; }
+.tags li {
+  padding: 9px 17px;
+  border: 1px solid var(--fg);
+  border-radius: 999px;
+  font: 400 15px/1.2 var(--font-small);
+}
+.project-text p { margin: 0; max-width: 22em; font: 400 20px/1.3 var(--font-small); }
+
+/* ---------- Footer ---------- */
+.site-footer { background: var(--footer-bg); color: var(--footer-fg); }
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding: 40px var(--margin) 32px;
+}
+.footer-heading { margin: 0 0 24px; font: 400 32px/1.2 var(--font-small); }
+.footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
+.pill--dark { --fg: #000; --bg: var(--footer-bg); border-color: #000; color: #000; }
+.pill--dark:hover { background: #000; color: var(--footer-bg); }
+.copyright { margin: 0 0 8px; font: 400 16px/1.2 var(--font-small); }
+
+/* ---------- Small screens ---------- */
+@media (max-width: 760px) {
+  :root { --nav-h: 64px; --gutter: 16px; }
+  .site-nav { gap: 8px; }
+  .nav-links { gap: 6px; }
+  .pill, .nav-links .pill { padding: 7px 12px; font-size: 14px; min-width: 0; }
+  .project { grid-template-columns: 1fr; gap: 16px; margin-bottom: 56px; }
+  .project:nth-of-type(even) .project-media { order: 0; }
+  .work-heading, .project-text h3 { font-size: 26px; }
+  .project-text p { font-size: 18px; }
+  .footer-inner { padding: 32px var(--margin) 24px; }
+  .footer-heading { font-size: 28px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-nav, .pill { transition: none; }
+}
+
+/* ---------- Light / dark button: same height as the nav pills ---------- */
+.site-nav .theme-toggle { width: 40px; height: 40px; }
+.site-nav .theme-toggle svg { width: 30px; height: 30px; stroke-width: 1.3; }
+@media (max-width: 760px) {
+  .site-nav .theme-toggle { width: 34px; height: 34px; }
+  .site-nav .theme-toggle svg { width: 26px; height: 26px; }
+}
+
+.site-nav .theme-toggle svg { transition: transform .3s ease; }
+.site-nav .theme-toggle:hover svg { transform: rotate(-15deg); }

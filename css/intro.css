@@ -1,0 +1,146 @@
+/* ==========================================================
+   Home intro: ASCII loader + name screen
+   ========================================================== */
+
+/* Respira is in media/fonts. */
+@font-face {
+  font-family: "Respira";
+  src: url("../media/fonts/Respira-Black.otf") format("opentype");
+  font-weight: 900;
+  font-display: block;
+}
+
+/* Roboto is in media/fonts (one file covers every weight). */
+@font-face {
+  font-family: "Roboto";
+  src: url("../media/fonts/Roboto-VariableFont_wdth,wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+/* Case study titles use Publico Text Bold (media/fonts). */
+@font-face {
+  font-family: "Publico Text";
+  src: url("../media/fonts/PublicoTextWeb-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+}
+
+/* Other headings use Publico Banner Regular (media/fonts). */
+@font-face {
+  font-family: "Publico Banner";
+  src: url("../media/fonts/Publico%20Banner%20Web%20Roman%20Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  --bg: #000;
+  --fg: #fff;
+  --font-name: "Respira", "UnifrakturMaguntia", serif;
+  --font-text: "Publico Banner", Georgia, "Times New Roman", serif;
+  --font-bold: "Publico Text", Georgia, "Times New Roman", serif;
+  /* Side margin on every page: 80px on desktop, scaling down to 20px on phones. */
+  --margin: clamp(20px, 12vw - 36px, 160px);
+  /* Corner rounding for every image and card on the site. */
+  --radius: 20px;
+}
+:root[data-theme="light"] {
+  --bg: #fff;
+  --fg: #000;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-text);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color .4s ease, color .4s ease;
+}
+
+/* ---------- Name screen ---------- */
+.intro {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5vw;
+  text-align: center;
+  transition: opacity .9s ease;
+}
+.intro-name {
+  margin: 0;
+  font-family: var(--font-name);
+  font-weight: 900;
+  font-size: 15vw;          /* refined by intro.js to fill the width */
+  line-height: 1;
+  white-space: nowrap;
+}
+.intro-tagline {
+  margin: .9em 0 0;
+  font-family: var(--font-bold);
+  font-weight: 700;
+  font-size: 3.6vw;          /* refined by intro.js */
+  line-height: 1.2;
+}
+.intro-name span { display: inline-block; }   /* so home.js can move it into the nav */
+.intro-tagline span { display: inline; }
+
+/* Hidden while the ASCII plays, then fades in. No scrolling until it's done. */
+.is-loading { overflow: hidden; }
+.is-loading .intro { opacity: 0; }
+
+/* ---------- ASCII canvas ---------- */
+.ascii {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  transition: opacity .9s ease;
+}
+.is-revealing .ascii { opacity: 0; }
+
+/* ---------- Light / dark toggle ---------- */
+.theme-toggle {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--fg);
+  cursor: pointer;
+  border-radius: 50%;
+  transition: opacity .3s ease, transform .3s ease;
+}
+.theme-toggle:hover { transform: rotate(-15deg); }
+.theme-toggle:focus-visible { outline: 2px solid var(--fg); outline-offset: 2px; }
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.icon-sun { display: none; }
+:root[data-theme="light"] .icon-sun { display: block; }
+:root[data-theme="light"] .icon-moon { display: none; }
+
+/* ---------- Small screens ---------- */
+@media (max-width: 700px) {
+  .intro { padding: 0 16px; }
+  .intro-tagline { max-width: 22em; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro, .ascii, body { transition: none; }
+}

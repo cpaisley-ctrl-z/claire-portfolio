@@ -1,0 +1,161 @@
+/* ==========================================================
+   Footer: sticker sheet + polaroid, then the Let's Connect bar
+   ========================================================== */
+@font-face {
+  font-family: "Literata";
+  src: url("../media/fonts/Literata-VariableFont_opsz,wght.ttf") format("truetype");
+  font-weight: 200 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Permanent Marker";
+  src: url("../media/fonts/PermanentMarker-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+.site-footer { background: var(--bg); color: var(--fg); }
+
+/* ---------- Sticker sheet + polaroid ---------- */
+.footer-play {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: clamp(48px, 6vw, 80px) var(--margin);
+}
+.sticker-sheet {
+  position: relative;
+  flex: 0 0 58%;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.sticker-sheet { container-type: inline-size; }
+.sticker-paper { display: block; width: 100%; height: auto; pointer-events: none; }
+
+.sticker-slot { position: absolute; }
+.sticker-slot > img,
+.sticker-ghost { display: block; width: 100%; height: auto; }
+/* The white shape left behind on the paper once a sticker is peeled off. */
+.sticker-ghost {
+  position: absolute;
+  inset: 0;
+  filter: brightness(0) invert(1) drop-shadow(0 0 1px rgba(0, 0, 0, .12));
+  opacity: 0;
+  transition: opacity .2s ease;
+  pointer-events: none;
+}
+.sticker-slot.is-empty .sticker-ghost { opacity: 1; }
+
+.sticker {
+  --tilt: 0deg;
+  position: relative;
+  display: block;
+  cursor: grab;
+  touch-action: none;
+  filter: drop-shadow(0 1px 1.5px rgba(0, 0, 0, .25));
+  transform: rotate(var(--tilt));
+  transition: transform .2s ease, filter .2s ease;
+}
+.sticker img { display: block; width: 100%; height: auto; pointer-events: none; -webkit-user-drag: none; }
+.sticker-layer .sticker { position: absolute; }
+.sticker.is-dragging {
+  cursor: grabbing;
+  transform: rotate(var(--tilt)) scale(1.08);
+  filter: drop-shadow(0 14px 18px rgba(0, 0, 0, .35));
+  transition: transform .15s ease, filter .15s ease;
+}
+.sticker.is-returning {
+  transition: left .55s cubic-bezier(.5, 0, .2, 1), top .55s cubic-bezier(.5, 0, .2, 1), transform .55s ease;
+}
+
+/* On hover the white die-cut edge shows around the sticker and under the lifted corner. */
+.sticker-under {
+  position: absolute;
+  inset: 0;
+  filter: brightness(0) invert(1) drop-shadow(0 0 1.5px #fff) drop-shadow(0 0 1.5px #fff) drop-shadow(0 0 1px rgba(0, 0, 0, .18));
+  opacity: 0;
+  transition: opacity .15s ease;
+}
+.sticker:hover .sticker-under,
+.sticker.is-peeling .sticker-under,
+.sticker.is-dragging .sticker-under { opacity: 1; }
+.sticker-art { position: relative; }
+
+/* The peeled-up corner: the white back of the sticker, folded over. */
+.sticker-flap {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  filter: drop-shadow(-1px -1px 2px rgba(0, 0, 0, .3));
+}
+.sticker-back {
+  position: absolute;
+  top: 0; left: 0;
+  transform-origin: 0 0;
+  visibility: hidden;
+  filter: brightness(0) invert(.93);
+}
+
+/* Stickers dropped on the page sit above everything but the nav. */
+.sticker-layer { position: absolute; top: 0; left: 0; width: 0; height: 0; z-index: 9; }
+
+/* "Stick me!" label and the Reset button, printed-sticker style on the paper. */
+.sticker-label,
+.sticker-reset {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  height: 9.6%;
+  padding: 0 3.2cqw;
+  border: 0;
+  border-radius: 999px;
+  background: #fff;
+  color: #111;
+  font: 400 3.5cqw/1 "Publico Banner", Georgia, serif;
+  white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .18), 0 0 0 1px rgba(0, 0, 0, .03);
+}
+.sticker-label { left: 6.3%; top: 8.7%; transform: rotate(-1.5deg); pointer-events: none; }
+.sticker-reset { left: 72.4%; top: 82.5%; transform: rotate(1deg); cursor: pointer; transition: transform .15s ease, box-shadow .15s ease; }
+.sticker-reset:hover { transform: rotate(1deg) translateY(-1px); box-shadow: 0 3px 8px rgba(0, 0, 0, .22); }
+.sticker-reset:focus-visible { outline: 2px solid #000; outline-offset: 2px; }
+
+.footer-polaroid {
+  position: relative;
+  flex: 0 0 38%;
+  margin: -4% 0 0 -6%;
+  z-index: 1;
+  container-type: inline-size;   /* caption scales with the polaroid */
+}
+.footer-polaroid img { display: block; width: 100%; height: auto; }
+.footer-polaroid figcaption {
+  position: absolute;
+  left: 8%; right: 8%;
+  bottom: 9%;
+  transform: rotate(-3.5deg);
+  font: 400 5.6cqw/1 "Permanent Marker", "Marker Felt", cursive;
+  color: #111;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* ---------- Let's Connect bar ---------- */
+.footer-inner {
+  color: #000;
+  background:
+    radial-gradient(38% 160% at 34% 50%, rgba(194, 189, 214, .95), rgba(194, 189, 214, 0) 100%),
+    linear-gradient(90deg, #938ff4 0%, #8f8af6 60%, #857efc 100%);
+}
+.site-footer .footer-inner { align-items: flex-start; }
+.footer-heading { font: 400 clamp(30px, 3.2vw, 44px)/1.15 "Publico Banner", Georgia, serif; }
+.copyright { margin: 8px 0 0; font: 400 18px/1.2 "Publico Banner", Georgia, serif; }
+.pill--dark { --bg: #938ff4; font-family: var(--font-small); }
+.pill--dark:hover { color: #c2bdd6; }
+
+@media (max-width: 760px) {
+  .footer-play { flex-direction: column; }
+  .sticker-sheet { flex-basis: auto; width: 100%; }
+  .footer-polaroid { flex-basis: auto; width: 72%; margin: 6% 0 0 18%; }
+}
