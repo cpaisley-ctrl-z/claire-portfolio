@@ -1,0 +1,218 @@
+/* ==========================================================
+   Case study pages
+   Uses the base styles in intro.css, the nav / pills / footer in
+   home.css, and the always-visible nav from about.css.
+   Headings use Publico Banner, body text uses Roboto.
+   ========================================================== */
+.case {
+  --read: 760px;              /* width of a line of body text */
+  --purple: #7b35b0;
+  padding-top: var(--nav-h);
+  font-family: var(--font-small);
+}
+
+/* ---------- Hero: soft lavender, matching the footer ---------- */
+.case-hero {
+  --fg: #111;                 /* light background in either theme, so text stays dark */
+  color: var(--fg);
+  background:
+    radial-gradient(70% 85% at 8% 40%, rgba(194, 189, 214, .95), rgba(194, 189, 214, 0) 100%),
+    linear-gradient(90deg, #938ff4 0%, #8f8af6 60%, #857efc 100%);
+  background-color: #8f8af6;
+}
+.case-hero {
+  padding: clamp(48px, 7vw, 88px) var(--margin);
+}
+/* The header image sits under the buttons, inside the purple. */
+.case-hero-media { margin: clamp(40px, 5vw, 64px) 0 0; }
+.case-hero-media img { display: block; width: 100%; height: auto; border-radius: var(--radius); }
+.case-back { gap: 8px; margin-bottom: 28px; }
+.case-hero h1 {
+  margin: 0 0 22px;
+  max-width: 14em;
+  font: 700 clamp(28px, 3.1vw, 48px)/1.12 var(--font-bold);
+}
+.case-lede {
+  margin: 0 0 30px;
+  max-width: 38em;
+  font: 400 clamp(16px, 1.6vw, 19px)/1.3 var(--font-small);
+}
+.case-actions { display: flex; flex-wrap: wrap; gap: 16px; }
+.case-hero .pill { font-size: 17px; padding: 11px 18px; }
+.case-hero .pill:hover { background: #111; color: #fff; }
+
+/* ---------- Project notes (left) + story (right) ---------- */
+.case-body {
+  display: grid;
+  grid-template-columns: minmax(180px, 230px) minmax(0, 1fr);
+  gap: clamp(40px, 7vw, 120px);
+  padding: 0 var(--margin);
+}
+/* The notes stay in view while the story scrolls past. */
+.case-aside { padding-top: clamp(36px, 5vw, 64px); }
+.case-aside .case-meta { position: sticky; top: calc(var(--nav-h) + 32px); }
+.case-meta { margin: 0; display: grid; gap: 22px; }
+.case-meta div { border-left: 3px solid var(--line); padding: 2px 0 2px 14px; }
+.case-meta dt { margin-bottom: 8px; font-size: 13px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; opacity: .7; }
+.case-meta dd { margin: 0; font-size: 17px; font-weight: 400; line-height: 1.35; }
+
+/* ---------- Sections ---------- */
+.case-part {
+  padding: clamp(36px, 5vw, 64px) 0 0;
+}
+.case-part > :not(figure):not(.case-figure-pair):not(.case-findings):not(.case-animations):not(.case-figure-trio):not(.case-step) {
+  max-width: var(--read);
+}
+.case h2 {
+  margin: 0 0 24px;
+  font: 700 clamp(28px, 3vw, 44px)/1.15 var(--font-bold);
+}
+/* Section headings are purple (lighter on dark so they stay readable). */
+.case-story h2 { color: var(--purple); }
+:root:not([data-theme="light"]) .case-story h2 { color: #b98ae0; }
+.case h2.case-subhead {
+  margin-top: clamp(64px, 8vw, 104px);
+  font-size: clamp(24px, 2.4vw, 34px);
+}
+.case-part p, .case-list li {
+  font-size: clamp(17px, 1.4vw, 20px);
+  line-height: 1.6;
+}
+.case-part p { margin: 0 0 1.2em; }
+.case-list { margin: 0 0 1.2em; padding-left: 1.2em; }
+.case-list li { margin-bottom: .5em; }
+.case-list li::marker { color: var(--purple); }
+
+.case-quote {
+  margin: 40px 0;
+  padding-left: 24px;
+  border-left: 2px solid var(--purple);
+}
+.case-quote p {
+  margin: 0 0 12px;
+  font: 400 clamp(20px, 2vw, 28px)/1.35 var(--font-text);
+}
+.case-quote cite { font-style: normal; font-size: 16px; opacity: .75; }
+.case-callout { font-weight: 400; }
+.case-part .case-note { margin-top: 16px; font-size: 14px; opacity: .7; }
+
+/* ---------- Images ---------- */
+.case-figure { margin: 48px 0 0; }
+.case-figure img { display: block; width: 100%; height: auto; border-radius: var(--radius); }
+.case-figure figcaption { margin-top: 12px; font-size: 14px; opacity: .75; }
+.case-part > .case-figure { margin-bottom: 32px; }   /* breathing room between a caption and the text after it */
+.case-figure--narrow { max-width: 560px; }   /* tall images stay a comfortable size */
+.case-figure--tall { max-width: 300px; }     /* phone-shaped animations */
+
+.case-figure-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  align-items: start;
+}
+.case-figure-trio {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+.case-figure-trio .case-figure { margin-top: 32px; }
+.case-figure-trio img { border-radius: 0; }   /* phone mockups bring their own corners */
+.case-animations {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 260px));
+  gap: 32px;
+  align-items: end;
+}
+.case-animations .case-figure { text-align: center; }
+.case-animations img { background: none; }
+
+/* ---------- Findings told step by step (finding, images, recommendation) ---------- */
+.case-step { margin-top: clamp(56px, 7vw, 88px); }
+.case-step h3 { margin: 0 0 16px; font: 400 clamp(22px, 2vw, 28px)/1.25 var(--font-text); }
+.case-step .case-figure-pair { margin-bottom: 28px; }
+.case-step .case-figure { margin-top: 24px; }
+.case-step > .case-figure { margin-bottom: 20px; }
+.case-step .finding-label { color: var(--purple); }
+:root:not([data-theme="light"]) .case-step .finding-label { color: #b98ae0; }
+.case-step > p, .case-step > h3 { max-width: var(--read); }
+.case-step + .case-callout { margin-top: clamp(56px, 7vw, 88px); }
+
+/* ---------- Findings ---------- */
+.case-findings {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin: 40px 0;
+}
+.finding {
+  padding: 28px 24px;
+  border: 1px solid var(--fg);
+  border-radius: var(--radius);
+}
+.case .finding-label {
+  margin: 0 0 14px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.finding h3 { margin: 0 0 14px; font: 400 22px/1.25 var(--font-text); }
+.finding p:last-child { margin: 0; font-size: 17px; line-height: 1.55; }
+
+.case-part .case-more { margin: 72px 0 0; padding-bottom: clamp(72px, 10vw, 120px); }
+.case-more .pill { font-size: 17px; padding: 11px 20px; gap: 8px; }
+
+/* ---------- Small screens ---------- */
+@media (max-width: 900px) {
+  .case-body { grid-template-columns: 1fr; gap: 0; }
+  .case-aside .case-meta { position: static; }
+  .case-aside { padding-top: 56px; }
+  .case-meta { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+}
+@media (max-width: 760px) {
+  .case-figure-pair, .case-figure-trio { grid-template-columns: 1fr; }
+  .case-animations { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  .case-hero .pill, .case-more .pill { font-size: 15px; padding: 9px 14px; }
+}
+
+/* ---------- Tighter rhythm (Gutenberg) ---------- */
+.case--compact .case-part,
+.case--compact .case-aside { padding-top: clamp(24px, 3vw, 40px); }
+.case--compact .case-step,
+.case--compact .case-step + .case-callout { margin-top: clamp(40px, 4.5vw, 56px); }
+.case--compact .case-figure { margin-top: 32px; }
+.case--compact .case-step .case-figure { margin-top: 20px; }
+.case--compact .case-step > .case-figure { margin-bottom: 16px; }
+
+/* ---------- Click a photo to zoom ---------- */
+.case-figure img, .case-hero-media img { cursor: zoom-in; }
+.lightbox {
+  width: 100vw; height: 100vh;
+  max-width: none; max-height: none;
+  margin: 0; padding: clamp(16px, 4vw, 56px);
+  border: 0;
+  background: rgba(0, 0, 0, .88);
+  color: #fff;
+  cursor: zoom-out;
+}
+.lightbox[open] { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; }
+.lightbox::backdrop { background: transparent; }
+.lightbox img {
+  max-width: 100%;
+  max-height: calc(100vh - 2 * clamp(16px, 4vw, 56px) - 60px);
+  width: auto; height: auto;
+  border-radius: var(--radius);
+}
+.lightbox p { margin: 0; max-width: 60ch; text-align: center; font: 400 16px/1.4 var(--font-small); }
+.lightbox p:empty { display: none; }
+.lightbox-close {
+  position: absolute; top: 16px; right: 16px;
+  width: 44px; height: 44px;
+  border: 1px solid #fff; border-radius: 999px;
+  background: transparent; color: #fff;
+  font: 400 22px/1 var(--font-small);
+  cursor: pointer;
+}
+.lightbox-close:hover { background: #fff; color: #000; }
+.case strong { font-weight: 400; }

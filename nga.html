@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>National Gallery of Art · Claire Paisley</title>
+  <meta name="description" content="Art or Fart: a multiplayer art game designed with the National Gallery of Art to reach Gen Z. A product design case study by Claire Paisley.">
+  <!-- Apply the saved light/dark choice before anything paints. -->
+  <script src="js/theme.js"></script>
+  <link rel="stylesheet" href="css/intro.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/about.css">
+  <link rel="stylesheet" href="css/case-study.css">
+  <link rel="stylesheet" href="css/footer.css">
+</head>
+<body class="page-static">
+  <header class="site-nav">
+    <div class="nav-logo-slot">
+      <a href="index.html#home" class="nav-logo" aria-label="Claire Paisley, home"><span>Claire Paisley</span></a>
+    </div>
+    <nav class="nav-links" aria-label="Main">
+      <a href="index.html#work" class="pill pill--active">Works</a>
+      <a href="about.html" class="pill">About</a>
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Toggle light and dark mode">
+      <!-- Moon (shown in dark mode) -->
+      <svg class="icon-moon" viewBox="0.9 3.3 19.8 19.8" aria-hidden="true">
+        <path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/>
+      </svg>
+      <!-- Sun (shown in light mode) -->
+      <svg class="icon-sun" viewBox="1.4 1.4 21.2 21.2" aria-hidden="true">
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+      </svg>
+    </button>
+  </header>
+
+  <main class="case case--compact">
+    <!-- ---------- Hero ---------- -->
+    <section class="case-hero">
+      <div class="case-hero-inner">
+        <a href="index.html#work" class="pill case-back"><span aria-hidden="true">←</span> Back to all work</a>
+        <h1>Making the National Gallery of Art something Gen Z wants to share</h1>
+        <p class="case-lede">A 16-week research sprint with the National Gallery of Art that led to Art or Fart, a playful, competitive multiplayer art game designed to make the museum part of how younger audiences already have fun together.</p>
+        <div class="case-actions">
+          <a class="pill" href="https://www.figma.com/proto/T8h2rCL8p2Tx9Oj8TbEvAT/NGA" target="_blank" rel="noopener">See the Prototype</a>
+        </div>
+      </div>
+      <figure class="case-hero-media">
+        <img src="media/nationalgalleryofart_casestudy%20copy/nga-hero-collage.jpg" alt="Art or Fart app screens layered over a painting from the National Gallery of Art.">
+      </figure>
+    </section>
+
+    <!-- Project notes stay pinned on the left while the story scrolls on the right. -->
+    <div class="case-body">
+      <aside class="case-aside" aria-label="Project details">
+        <dl class="case-meta">
+          <div style="--line:#e5484d"><dt>Role</dt><dd>Product Designer, Researcher</dd></div>
+          <div style="--line:#5eb1ef"><dt>Timeline</dt><dd>16 Weeks<br>Aug - Dec 2025</dd></div>
+          <div style="--line:#8e4ec6"><dt>Client</dt><dd>National Gallery of Art</dd></div>
+          <div style="--line:#9ed04a"><dt>Team</dt><dd>Claire<br>Lanting Ko<br>Isadora Oh<br>Eric Lopez</dd></div>
+          <div style="--line:#e5484d"><dt>Tools</dt><dd>Figma<br>Miro</dd></div>
+        </dl>
+      </aside>
+      <div class="case-story">
+
+    <!-- ---------- The problem ---------- -->
+    <section class="case-part">
+      <h2>The challenge: a Gen Z audience that isn’t showing up online</h2>
+      <p>The National Gallery of Art draws millions of in-person visitors every year, but its digital platform wasn’t reaching a younger audience. The Gallery wanted a way to build trust with Gen Z that felt playful rather than instructional, without losing the credibility of a national institution.</p>
+      <p>We framed the brief around three questions that shaped everything that followed:</p>
+      <ul class="case-list">
+        <li>How do we draw Gen Z to the platform in the first place?</li>
+        <li>How do we keep “fun seekers” engaged once they’re there, rather than a one-time visit?</li>
+        <li>How do we stay playful without undermining the Gallery’s institutional voice?</li>
+      </ul>
+    </section>
+
+    <!-- ---------- My role & contributions ---------- -->
+    <section class="case-part">
+      <h2>Research: listening before we designed anything</h2>
+      <p>Rather than assume what Gen Z wanted from a museum, we ran four parallel research tracks to find out.</p>
+      <ul class="case-list">
+        <li>Generative interviews with five Gen Z museum visitors and one museum professional.</li>
+        <li>Competitive analysis of The Met, Museo del Prado, and The New York Times’ digital experiences.</li>
+        <li>A Gen Z museum-visitor survey on how and why they engage with cultural institutions online.</li>
+        <li>Desk research into broader Gen Z cultural and social media behavior.</li>
+      </ul>
+      <figure class="case-figure">
+        <img src="media/nationalgalleryofart_casestudy%20copy/nga-research-collage.webp" alt="Collage of research artifacts: interview notes, survey results, and competitor screenshots." loading="lazy">
+      </figure>
+      <figure class="case-figure">
+        <img src="media/nationalgalleryofart_casestudy%20copy/nga-team-call.webp" alt="The team on a video call during the research phase." loading="lazy">
+      </figure>
+
+      <h2 class="case-subhead">What we learned: fun is a social tool</h2>
+      <p>Three insights redirected our whole strategy:</p>
+      <ul class="case-list">
+        <li><strong>Fun is a social tool.</strong> Gen Z shares things to connect with friends, not just for their own entertainment. A museum experience needed to be worth sending to someone.</li>
+        <li><strong>Museum sites get used transactionally.</strong> Visitors were going to institutional sites for hours, tickets, and directions, not to explore. Exploration was happening elsewhere.</li>
+        <li><strong>Show up where they already are, instead of asking them to come to you.</strong> If exploration wasn’t happening on museum websites, we needed to meet that behavior on its own terms.</li>
+      </ul>
+    </section>
+
+    <!-- ---------- Key design decisions ---------- -->
+    <section class="case-part">
+      <h2>Five ideas before the right one</h2>
+      <p>We prototyped five directions before finding the one that actually worked: A.R.T. (Another Riddle to Think), ArtTiles, Frame or Flame, NGA ArtCraft, and Heist &amp; Seek.</p>
+      <p>Each concept was fun on its own, but none of them had the instant, competitive, social dynamic our research told us Gen Z actually responds to. They were things you’d do once, alone, not something you’d come back to with friends.</p>
+      <figure class="case-figure">
+        <img src="media/nationalgalleryofart_casestudy%20copy/nga-ideation-concepts.webp" alt="The five early concepts: A.R.T., ArtTiles, Frame or Flame, NGA ArtCraft, and Heist and Seek." loading="lazy">
+      </figure>
+
+      <h2 class="case-subhead">The pivot: introducing Art or Fart</h2>
+      <p>Art or Fart is a weekly, multiplayer, timed art challenge. Every round, players get a themed prompt pulled from a current NGA exhibit, race the clock to paint it, then vote on each other’s submissions runway-style and climb a leaderboard.</p>
+      <p>It borrows the loop that already works for Gen Z on TikTok and Roblox: low-pressure, expressive, and built to be shared, while every theme quietly ties back to real work in the Gallery’s collection.</p>
+      <div class="case-figure-trio">
+        <figure class="case-figure">
+          <img src="media/nationalgalleryofart_casestudy%20copy/nga-gameplay-vote-theme.png" alt="Theme picker pairing a style (Baroque, Minimalism) with an object (Party, Dog)." loading="lazy">
+        </figure>
+        <figure class="case-figure">
+          <img src="media/nationalgalleryofart_casestudy%20copy/nga-gameplay-drawing-canvas.png" alt="Drawing canvas for the theme Pop Dog, with a 90-second timer and Auto Brush tools." loading="lazy">
+        </figure>
+        <figure class="case-figure">
+          <img src="media/nationalgalleryofart_casestudy%20copy/nga-gameplay-results-theme.png" alt="Results for Pop Dog, showing the top three drawings in gold frames." loading="lazy">
+        </figure>
+      </div>
+
+      <h2 class="case-subhead">Designing through constraints</h2>
+      <p>Every core feature came out of a real limitation we had to design around, not a feature we added for its own sake.</p>
+      <article class="case-step">
+        <p class="finding-label">Constraint 01</p>
+        <h3>Drawing on a phone is hard</h3>
+        <p>Freehand drawing on a small touchscreen is frustrating for most people, and that friction would have killed the game before it started. We added an AI-assisted Auto Brush that interprets a rough sketch and offers cleaner options in real time, making creation accessible without taking the “art” out of it.</p>
+        <figure class="case-figure">
+          <img src="media/nationalgalleryofart_casestudy%20copy/nga-feature-ai-drawing-tool.webp" alt="The AI Auto Brush suggesting cleaner versions of a rough sketch." loading="lazy">
+        </figure>
+      </article>
+      <article class="case-step">
+        <p class="finding-label">Constraint 02</p>
+        <h3>The institution needed a voice it could trust</h3>
+        <p>Open text chat didn’t align with NGA’s guidelines for a public-facing product: there was too much risk in giving strangers an unmoderated channel. We replaced it with a reactions button, so players could still express themselves in the moment without the Gallery losing control of its voice.</p>
+        <figure class="case-figure case-figure--narrow">
+          <img src="media/nationalgalleryofart_casestudy%20copy/nga-feature-emoji-reactions.webp" alt="Emoji reaction buttons on a player’s drawing." loading="lazy">
+        </figure>
+      </article>
+      <article class="case-step">
+        <p class="finding-label">Constraint 03</p>
+        <h3>One theme gets old fast</h3>
+        <p>A single weekly prompt wasn’t going to hold anyone’s attention for long. We built a shuffleable carousel that combines an art style with an object, like Baroque × Dog or Minimalism × Party, so the same mechanic keeps generating new combinations, and each pairing becomes a small, memorable lesson connecting an art style back to the collection.</p>
+        <figure class="case-figure case-figure--narrow">
+          <img src="media/nationalgalleryofart_casestudy%20copy/nga-feature-theme-shuffle.webp" alt="The theme shuffle pairing an art style with an object." loading="lazy">
+        </figure>
+        <figure class="case-figure case-figure--tall">
+          <img src="media/nationalgalleryofart_casestudy%20copy/nga-theme-carousel.gif" alt="Animation of the theme carousel shuffling through art style and object pairings." loading="lazy">
+          <figcaption>The theme carousel in action</figcaption>
+        </figure>
+      </article>
+      <article class="case-step">
+        <p class="finding-label">Constraint 04</p>
+        <h3>Competition needed real stakes</h3>
+        <p>Without a way to keep score, “competitive” was just a word. Star ratings and a weekly leaderboard give every round a clear winner and a reason to come back, turning a one-off doodle into an ongoing, social competition.</p>
+        <figure class="case-figure">
+          <img src="media/nationalgalleryofart_casestudy%20copy/nga-feature-leaderboard.webp" alt="The weekly leaderboard with star ratings." loading="lazy">
+        </figure>
+      </article>
+      <article class="case-step">
+        <p class="finding-label">Constraint 05</p>
+        <h3>Not everyone wants to play with strangers</h3>
+        <p>Our research showed Gen Z values online community, but that doesn’t always mean a public room full of strangers. Private rooms let players invite friends directly, and a custom hand-drawn avatar gives everyone a low-stakes way to try the drawing tools before a round even starts.</p>
+        <figure class="case-figure">
+          <img src="media/nationalgalleryofart_casestudy%20copy/nga-feature-private-rooms.webp" alt="Private rooms for inviting friends, with custom avatars." loading="lazy">
+        </figure>
+      </article>
+    </section>
+
+    <!-- ---------- The outcome ---------- -->
+    <section class="case-part">
+      <h2>The outcome</h2>
+      <p>We presented Art or Fart back to the Gallery as a concept that could realistically sit alongside their existing digital products, not replace them.</p>
+      <blockquote class="case-quote">
+        <p>“I can see this easily fitting in to our portfolio of products.”</p>
+        <cite>Feedback from our National Gallery of Art stakeholders</cite>
+      </blockquote>
+
+      <h2 class="case-subhead">What’s next</h2>
+      <ul class="case-list">
+        <li>Build a full working prototype beyond the current click-through version.</li>
+        <li>Expand the theme catalogue so the style-and-object carousel keeps surprising returning players.</li>
+        <li>Add a “Learn More” link on every theme, connecting gameplay straight back to the real piece in the collection that inspired it.</li>
+      </ul>
+
+      <h2 class="case-subhead">Thanks for reading!</h2>
+      <p>Four of us worked on this together at Pratt Institute. We even drew ourselves in-game to test the avatar tool we designed.</p>
+      <figure class="case-figure">
+        <img src="media/nationalgalleryofart_casestudy%20copy/nga-team-avatars.webp" alt="The four team members drawn as Art or Fart avatars." loading="lazy">
+      </figure>
+      <p class="case-more"><a href="index.html#work" class="pill">More case studies <span aria-hidden="true">→</span></a></p>
+    </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-play">
+      <div class="sticker-sheet" role="group" aria-label="Sticker sheet. Drag the stickers anywhere on the page.">
+        <img class="sticker-paper" src="media/idex-homepage/paper.png" alt="">
+        <span class="sticker-label" aria-hidden="true">Stick me!</span>
+        <div class="sticker-slot" style="left:3.3%;top:22%;width:20.5%">
+          <img class="sticker-ghost" src="media/idex-homepage/miffysticker.png" alt="">
+          <div class="sticker" data-w="158" data-e="287"><img class="sticker-art" src="media/idex-homepage/miffysticker.png" alt="Miffy holding a balloon sticker" draggable="false"></div>
+        </div>
+        <div class="sticker-slot" style="left:31%;top:5.2%;width:16.6%">
+          <img class="sticker-ghost" src="media/idex-homepage/partysticker.png" alt="">
+          <div class="sticker" data-w="128" data-e="259"><img class="sticker-art" src="media/idex-homepage/partysticker.png" alt="Party hat sticker" draggable="false"></div>
+        </div>
+        <div class="sticker-slot" style="left:49.1%;top:5.2%;width:17.8%">
+          <img class="sticker-ghost" src="media/idex-homepage/8ballsticker.png" alt="">
+          <div class="sticker" data-w="137" data-e="233"><img class="sticker-art" src="media/idex-homepage/8ballsticker.png" alt="Magic 8 ball sticker" draggable="false"></div>
+        </div>
+        <div class="sticker-slot" style="left:68.5%;top:26%;width:19.6%">
+          <img class="sticker-ghost" src="media/idex-homepage/butterflysticker.png" alt="">
+          <div class="sticker" data-w="151" data-e="269"><img class="sticker-art" src="media/idex-homepage/butterflysticker.png" alt="Yellow butterfly sticker" draggable="false"></div>
+        </div>
+        <div class="sticker-slot" style="left:27.2%;top:37%;width:23.6%">
+          <img class="sticker-ghost" src="media/idex-homepage/camerasticker.png" alt="">
+          <div class="sticker" data-w="182" data-e="280"><img class="sticker-art" src="media/idex-homepage/camerasticker.png" alt="Kodak disposable camera sticker" draggable="false"></div>
+        </div>
+        <div class="sticker-slot" style="left:3.3%;top:67%;width:19.9%">
+          <img class="sticker-ghost" src="media/idex-homepage/dudesticker.png" alt="">
+          <div class="sticker" data-w="153" data-e="215"><img class="sticker-art" src="media/idex-homepage/dudesticker.png" alt="“Dude.” speech bubble sticker" draggable="false"></div>
+        </div>
+        <div class="sticker-slot" style="left:29.5%;top:62.8%;width:20.9%">
+          <img class="sticker-ghost" src="media/idex-homepage/discosticker.png" alt="">
+          <div class="sticker" data-w="161" data-e="260"><img class="sticker-art" src="media/idex-homepage/discosticker.png" alt="Disco ball sticker" draggable="false"></div>
+        </div>
+        <div class="sticker-slot" style="left:51.7%;top:54.8%;width:22.2%">
+          <img class="sticker-ghost" src="media/idex-homepage/omgsticker.png" alt="">
+          <div class="sticker" data-w="171" data-e="244"><img class="sticker-art" src="media/idex-homepage/omgsticker.png" alt="“OMG!” comic burst sticker" draggable="false"></div>
+        </div>
+        <button class="sticker-reset" type="button">Reset</button>
+      </div>
+      <figure class="footer-polaroid">
+        <img src="media/idex-homepage/polaroid_website.png" alt="Black and white polaroid of Claire and friends by a lake.">
+        <figcaption>Thanks for stopping by</figcaption>
+      </figure>
+    </div>
+    <div class="footer-inner">
+      <div>
+        <h2 class="footer-heading">Let’s Connect</h2>
+        <div class="footer-links">
+          <!-- Put your email address in data-email -->
+          <button type="button" class="pill pill--dark copy-email" data-email="paisleyclaire9@gmail.com">Copy Email Address</button>
+          <!-- Put your LinkedIn profile link in href -->
+          <a href="https://www.linkedin.com/in/claire-paisley-475941162/" class="pill pill--dark" target="_blank" rel="noopener">Linkedin</a>
+        </div>
+      </div>
+      <p class="copyright">©2026 Claire Paisley</p>
+    </div>
+  </footer>
+
+  <script src="js/site.js"></script>
+  <script src="js/stickers.js"></script>
+  <script src="js/lightbox.js"></script>
+</body>
+</html>
